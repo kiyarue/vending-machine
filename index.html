@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snack Station</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="stage">
+      <i class="gelembung" style="left:90px;top:130px;width:70px;height:70px"></i>
+      <i class="gelembung" style="left:1130px;top:480px;width:96px;height:96px"></i>
+      <i class="gelembung" style="left:640px;top:610px;width:46px;height:46px"></i>
+
+      <header class="glass">
+        <h1>Snack Station</h1>
+        <span id="judul"></span>
+        <span id="timer" class="lencana" hidden></span>
+      </header>
+
+      <!-- 1. Menu -->
+      <section id="menu" class="screen aktif">
+        <aside class="glass" id="panel">
+          <h2>Pesanan Anda</h2>
+          <div class="gbr besar"></div>
+          <p id="psnNama" class="tebal"></p>
+          <p id="psnHarga" class="redup"></p>
+          <p id="err" class="galat"></p>
+          <button id="lanjut1" class="btn hijau" disabled>Lanjut</button>
+        </aside>
+        <div id="grid"></div>
+        <nav class="glass" id="kategori">
+          <button class="btn hijau" data-f="semua">Semua</button>
+          <button class="btn biru" data-f="snack">Snack</button>
+          <button class="btn biru" data-f="minuman">Minuman</button>
+        </nav>
+      </section>
+
+      <!-- 2. Quantity -->
+      <section id="qty" class="screen">
+        <div class="dlg glass">
+          <h2 id="qNama"></h2>
+          <p id="qHarga" class="redup"></p>
+          <div class="stepper">
+            <button id="kurang" class="btn biru bulat">−</button>
+            <span id="qJml">1</span>
+            <button id="tambah" class="btn biru bulat">+</button>
+          </div>
+          <p id="qStok" class="redup"></p>
+          <div class="baris">
+            <button id="qKembali" class="btn biru">Kembali</button>
+            <button id="qLanjut" class="btn hijau">Lanjut</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Order summary -->
+      <section id="ringkasan" class="screen">
+        <div class="dlg glass">
+          <h2>Cek pesanan Anda</h2>
+          <div class="tabel">
+            <p><span>Produk</span><b id="rNama"></b></p>
+            <p><span>Jumlah</span><b id="rJml"></b></p>
+            <p><span>Total harga</span><b id="rTotal" class="hijau-t"></b></p>
+          </div>
+          <p class="redup">Pembayaran harus selesai dalam 3 menit setelah memilih metode</p>
+          <div class="baris">
+            <button id="rBatal" class="btn merah">Batal</button>
+            <button id="rOk" class="btn hijau">Konfirmasi</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Payment method -->
+      <section id="metode" class="screen">
+        <div class="dlg glass">
+          <h2>Bayar dengan</h2>
+          <div class="baris">
+            <button class="opsi" data-m="cash">💵<b>Tunai</b></button>
+            <button class="opsi" data-m="qris">📱<b>QRIS</b></button>
+            <button class="opsi" data-m="kartu">💳<b>Kartu NFC</b></button>
+          </div>
+          <button id="mBatal" class="btn merah">Batal</button>
+        </div>
+      </section>
+
+      <!-- 5. Cash -->
+      <section id="tunai" class="screen">
+        <div class="dlg glass">
+          <h2>Tolong masukkan uang</h2>
+          <div class="slot"></div>
+          <div class="tabel">
+            <p><span>Total</span><b id="tTotal"></b></p>
+            <p><span>Uang masuk</span><b id="tMasuk" class="hijau-t"></b></p>
+            <p><span>Kurang</span><b id="tKurang" class="merah-t"></b></p>
+          </div>
+          <div id="uang" class="baris kecil"></div>
+          <button id="tBatal" class="btn merah">Batal</button>
+        </div>
+      </section>
+
+      <!-- 6. QRIS / Card -->
+      <section id="qris" class="screen">
+        <div class="dlg glass">
+          <h2 id="dJudul"></h2>
+          <div class="baris">
+            <div id="qr"></div>
+            <div class="kiri">
+              <p id="dTotal" class="tebal"></p>
+              <p class="redup">Demo: tekan tombol hijau untuk mensimulasikan pembayaran</p>
+              <p id="dPesan" class="galat"></p>
+              <button id="dBayar" class="btn hijau">Saya sudah bayar</button>
+            </div>
+          </div>
+          <button id="dBatal" class="btn merah">Batal</button>
+        </div>
+      </section>
+
+      <!-- 7. Result (success / cancelled / failed) -->
+      <section id="hasil" class="screen">
+        <div class="dlg glass">
+          <div id="hIkon" class="ikon"></div>
+          <h2 id="hJudul"></h2>
+          <p id="hTeks" class="redup"></p>
+          <button id="hMenu" class="btn biru">Kembali ke menu</button>
+        </div>
+      </section>
+
+      <!-- Demo switches (to show the failure branches in the presentation) -->
+      <div id="demo" class="glass">
+        <b>Mode demo</b>
+        <label><input type="checkbox" id="dGagal" /> Pembayaran digital gagal</label>
+        <label><input type="checkbox" id="dStuck" /> Produk tersangkut</label>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
